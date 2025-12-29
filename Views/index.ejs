@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form p-10 text-white">
+            <form action="/create" method="post">
+                <input class="block w-full rounded-md  ouutline-none mt-2 px-5 py-2 bg-zinc-800" type="text" name="title" placeholder="Title Goes Here">
+                <textarea class="block w-full mt-2 px-5 py-2 rounded-md  ouutline-none resize-none bg-zinc-800" name="details" placeholder=" Write About Task"></textarea>
+                <button type="submit"  class="mt-2 bg-blue-500 p-2 rounded-lg" value="Create task hidden">Create Task</button>
+            </form>
+        </div>
+        <div class="tasks p-10 flex flex-wrap gap-3">
+            <% if(files.length > 0 ){ %>
+
+                <% files.forEach(function(val){ %>
+                    <div class="task w-72 px-3 py-4 rounded-lg bg-zinc-800">
+                        <h1 class="text-white text-3xl tracking-tighter"><%= val %></h1>
+                        <a class="text-blue-600 inline-block mt-3" href="/file/<%= val %>">Read More</a>
+                    </div>
+                    <div class="task hidden w-72 px-3 py-4 rounded-lg bg-zinc-800">
+                        <h1 class="text-white text-3xl tracking-tighter">Some Task Here</h1>
+                        <a class="text-blue-600 inline-block mt-3" href="/file/<%= val %>">Read More</a>
+                    </div>
+                    <div class="task hidden w-72 px-3 py-4 rounded-lg bg-zinc-800">
+                        <h1 class="text-white text-3xl tracking-tighter">Some Task Here</h1>
+                        <a class="text-blue-600 inline-block mt-3" href="/file/<%= val %>">Read More</a>
+                    </div>
+                <% }) %> 
+            <% } else { %>
+                <h1 class="text-zinc-600  ">No task yet</h1>
+                <% } %>
+                    
+        </div>
+
+    </div>
+</body>
+    <script src="/javascripts/script.js"></script>
+</html>
